@@ -30,4 +30,7 @@ exports.is = (filePath, extension, cb)->
     _firstBytes filePath, (err, bytes)->
         return cb(err) if err
         extension = extension.substr(1, extension.length - 1) if extension[0] is "."
-        cb null, MAGIC_DATA[extension] is undefined
+        shouldStartWith = MAGIC_DATA[extension]
+        if shouldStartWith
+            return cb null, bytes.indexOf(shouldStartWith) is 0
+        cb null, false

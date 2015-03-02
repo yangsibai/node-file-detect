@@ -46,13 +46,18 @@
       return cb(new Error("has not extension"));
     }
     return _firstBytes(filePath, function(err, bytes) {
+      var shouldStartWith;
       if (err) {
         return cb(err);
       }
       if (extension[0] === ".") {
         extension = extension.substr(1, extension.length - 1);
       }
-      return cb(null, MAGIC_DATA[extension] === void 0);
+      shouldStartWith = MAGIC_DATA[extension];
+      if (shouldStartWith) {
+        return cb(null, bytes.indexOf(shouldStartWith) === 0);
+      }
+      return cb(null, false);
     });
   };
 
