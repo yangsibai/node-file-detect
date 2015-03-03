@@ -6,13 +6,13 @@ fs = require("fs")
     Ascii digits: . = not an ascii char
 ###
 MAGIC_DATA =
-    "png": "89 50 4e 47"
-    "jpg": "ff d8 ff e0"
-    "gif": "47 49 46 38"
-    "bmp": "42 4d"
-    "bz": "42 5a"
-    "gz": "1f 8b"
-    "zip": "50 4b 03 04"
+    "png": "89504e47"
+    "jpg": "ffd8ffe0"
+    "gif": "47494638"
+    "bmp": "424d"
+    "bz": "425a"
+    "gz": "1f8b"
+    "zip": "504b0304"
 
 _firstBytes = (filePath, cb)->
     fs.open filePath, 'r', (err, fd)->
