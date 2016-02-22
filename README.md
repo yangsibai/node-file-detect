@@ -1,14 +1,25 @@
-##node-file-detect
+## node-file-detect
 
-detect file
+Detect file type.
 
-###useage
+### Usage
 
-    var file-detect = require("file-detect");
-    file-detect.is("/example/sample.png", ".png", function(err, isPNG){
+    var fd = require("file-detect");
+    fd.is("/example/sample.png", ".png", function(err, isPNG){
+        // some more code with the result
     });
 
-###Reference
+### Supported file type
+
++ .png
++ .jpg
++ .gif
++ .bmp
++ .bz
++ .gz
++ .zip
+
+### Reference
 
 1. <http://en.wikipedia.org/wiki/List_of_file_signatures>
 2. <http://stackoverflow.com/a/8475542/1778658>
